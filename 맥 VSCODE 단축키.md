@@ -92,3 +92,5 @@
 - (Alt + L + C) : Close Server
 
 - 출처 : https://zuyo.tistory.com/902
+
+- Command + I : import 자동완성 import { } from ''에서 
