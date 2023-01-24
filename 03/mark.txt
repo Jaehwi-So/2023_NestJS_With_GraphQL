@@ -1,0 +1,53 @@
+# Docker
+부팅과 같은 운영체제의 핵심 기능(커널)은 공유하는 가상머신 -> OS 전체를 새로 설치하지 않아도 됨, 용량Down, 성능Up
+Dockerfile의 작성으로 가상머신 컨테이너 안의 필요한 프로그램과 세팅을 동일하게 구축할 수 있다.
+
+- 개발/배포환경의 통일
+- 프로그램 미리 설치
+- 가벼운 가상 컴퓨터
+
+# Docker Cashed
+- dockerhub install과 같은 명령어들이 이전에 한적이 있다면 되있는 것을 꺼내온다.
+- COPY와 같이 내용이 달라지는 명령 이후에는 캐싱을 사용하지 않는다.
+
+# 이미지 생성
+docker build .
+
+# 이미지 목록 확인
+docker images 
+
+# 이미지 실행
+docker run 이미지 ID
+
+# 실행중인 도커 컨테이너 목록 확인
+docker ps
+
+# 전체 도커 컨테이너 목록 확인
+docker ps -a
+
+# 전체 도커 컨테이너 ID 목록 확인
+docker ps -a -q
+
+# 도커 컨테이너 접속
+docker exec -it d205d73defdb /bin/bash
+
+# 포트포워딩
+docker run -p 8000:3001 de353fefbada
+
+# 도커 컨테이너 중지
+docker stop 컨테이너ID
+
+# 도커 컨테이너 삭제
+docker rm 컨테이너ID
+docker rm `docker ps -a -q` : 전체삭제, ` `는 리눅스 명령어로 인식한다.
+
+# 도커 이미지 삭제
+docker rmi 이미지ID
+docker rmi `docker images -a -q`
+
+# 도커 멈춘 컨테이너, 연관 이미지 등 안쓰는 리소스 삭제
+docker system prune -a
+
+# Docker-compose  
+Dockerfile들을 그루핑 해주는 녀석.
+내부적인 포트포워딩 설정이 간단해짐
