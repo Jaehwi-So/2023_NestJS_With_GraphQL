@@ -58,12 +58,12 @@ app.post('/boards', async (req, res) => {
             contents: data.contents
         })
 
-        await board.save();
-    
+        await board.save();//
+     
         //2. 결과 응답하기
         res.status(200).send({
             success: true, 
-            message : "게시물 등록 성공"
+            message : "게시물 등록 성공!!"
         });
     }
     else{
