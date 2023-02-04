@@ -1,5 +1,13 @@
 ## VSCode 단축키 for MAC
 
+
+### 자주 쓰는
+* fn + F12 (F12) : 정의로 이동
+- ⌥ Click (Alt + Click) : 커서 삽입 (클릭한 위치에)
+- ⌥ ⌘ ↑ or ↓ (Ctrl + Alt + ↑ / ↓) : 커서 삽입 (위,아래 라인에)
+- Command + I : 자동완성
+
+
 - ⇧ : shift
 - ⌃ : controll
 - ⌥ : option

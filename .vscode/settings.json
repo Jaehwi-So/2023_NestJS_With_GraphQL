@@ -1,0 +1,4 @@
+{
+  "editor.formatOnSave": true, //저장할때마다 포멧 저장
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
