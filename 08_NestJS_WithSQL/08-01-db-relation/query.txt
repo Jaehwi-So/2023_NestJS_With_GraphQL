@@ -1,0 +1,35 @@
+show databases;
+
+use myproject3;
+
+show tables;
+
+desc product;
+
+select * from product;
+
+insert into product(id, name, description, price, isSoldOut) 
+values(uuid(), "마우스", "찍찍", 10000, false);
+
+insert into product(id, name, description, price, isSoldOut) 
+values(uuid(), "노트북", "꽥꽥", 170000, false);
+
+select * from product;
+
+insert into product_sales_location (id, address, addressDetail, lat, lng, meetingTime)
+values(uuid(), "서울시 마포구", "공덕역", "0.0", "0.1", "2022-12-30");
+
+select * from product_sales_location psl ;
+
+update product 
+set productSalesLocationId = '0515cd04-a57a-11ed-a421-d63c31f30d8f'
+where name='마우스';
+
+select * from product p
+inner join product_sales_location psl
+on productSalesLocationId  = psl.id
+where name='마우스';
+
+select p.id, psl.id, name, price, address, addressDetail
+from product p, product_sales_location psl 
+where p.productSalesLocationId = psl.id ;

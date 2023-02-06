@@ -18,7 +18,7 @@ export class BoardResolver {
   }
 
   @Mutation(() => String)
-  creatrBoard(
+  createBoard(
     //@Args({ nullable: true, name: 'writer' }) writer: string,
     //@Args('title') title: string,
     //@Args('contents') contents: string,
