@@ -125,3 +125,8 @@ package-lock.json
 *yarn.lock/*
 yarn.lock
 .DS_Store
+
+# GCP
+
+*.secret.*
+
