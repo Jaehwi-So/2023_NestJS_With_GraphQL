@@ -40,15 +40,30 @@ export class ProductResolver {
       console.log('Use Cache');
       return productsCache;
     }
+
     //2. 캐시가 되어있지 않다면 Elastic search에서 조회하기(유저가 검색한 검색어로 조회하기)
+
+    // const result = await this.elasticsearchService.search({
+    //   index: 'myproduct4',
+    //   query: {
+    //     match: {
+    //       description: keyword,
+    //     },
+    //   },
+    // });
+
     const result = await this.elasticsearchService.search({
       index: 'myproduct4',
       query: {
-        match: {
-          description: keyword,
+        bool: {
+          should: [
+            { term: { name: keyword } },
+            { term: { description: keyword } },
+          ],
         },
       },
     });
+
     const products = result.hits.hits.map((el: any) => ({
       id: el._source.id,
       name: el._source.name,
