@@ -130,3 +130,7 @@ yarn.lock
 
 *.secret.*
 
+# volume
+
+**/local-mariadb
+
