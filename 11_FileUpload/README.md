@@ -22,3 +22,9 @@
 - Postman에서의 양식 확인
 
 - yarn add @google-cloud/storage
+
+# GCP
+
+GCP에서 버킷 생성.  
+Storage에 파일 저장
+Cloud Function 이용해보기

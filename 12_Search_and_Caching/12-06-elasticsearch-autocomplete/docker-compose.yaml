@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend/:/project3/
-      - /project3/node_modules
+      - /project3/node_modules #node_modules 볼륨 제외
     ports:
       - 8000:3000
   my-database:

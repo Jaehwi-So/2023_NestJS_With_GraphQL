@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>회원 가입</title>
-</head>
-<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>  <!-- HTML에서 Axios 패키지.-->
-<script>
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <!-- HTML에서 Axios 패키지.-->
+  <script>
     function auth() {
-        //1. 입력 휴대폰번호 가져오기
-        const phone = document.getElementById("inputPhone").value;
-        //console.log('phone ', phone);
-        //2. 해당 휴대폰번호로 인증번호 요청
-        axios.post("http://localhost:3000/tokens/phone", {
-            phone: phone
-        }).then((res) => {
-            console.log(res);
-            if(res.data.success){
-                document.getElementById('result').innerText = "인증완료"
-            }
-            else{
-                document.getElementById('result').innerText = "인증실패"
-            }
+      //1. 입력 휴대폰번호 가져오기
+      const phone = document.getElementById("inputPhone").value;
+      //console.log('phone ', phone);
+      //2. 해당 휴대폰번호로 인증번호 요청
+      axios
+        .post("http://localhost:3000/tokens/phone", {
+          phone: phone,
         })
-        
+        .then((res) => {
+          console.log(res);
+          if (res.data.success) {
+            document.getElementById("result").innerText = "인증완료";
+          } else {
+            document.getElementById("result").innerText = "인증실패";
+          }
+        });
     }
-</script>
-<body>
-    휴대폰번호 : <input type="text" id="inputPhone"/>
+  </script>
+  <body>
+    휴대폰번호 : <input type="text" id="inputPhone" />
     <button onclick="auth()">인증하기</button>
     <div id="result">인증상태</div>
     <button>회원 가입하기</button>
-</body>
+  </body>
 </html>
+<style>
+  h1 {
+    color: darkslateblue;
+  }
+</style>
 
 <!--
     CORS Policy

@@ -9,6 +9,8 @@ app.get("/stocks/max", (req, res) => {
   res.send("현재까지의 주식 최대 가격 조회");
 });
 
-app.post("/stocks", (req, res) => {});
+app.post("/stocks", (req, res) => {
+  res.send("신규주식 등록");
+});
 
 app.listen(3002);

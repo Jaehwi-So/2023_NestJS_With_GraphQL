@@ -44,7 +44,7 @@ export class PointTransactionService {
       const user = await queryRunner.manager.findOne(
         User,
         { id: currentUser.id },
-        { lock: { mode: 'pessimistic_write' } },
+        { lock: { mode: 'pessimistic_write' } },  //SERIALIZABLE 수준일때 베타락 적용가능
       );
 
       //3. 유저의 돈 업데이트(충전)
