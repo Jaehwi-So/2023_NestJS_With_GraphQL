@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
 import { HttpExceptionFilter } from './commons/filter/http-exception.filter';
 import { winstonLogger } from './utils/winston/winston.config';
+import { swaggerInit } from './utils/swagger/swagger.config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -18,6 +19,8 @@ async function bootstrap() {
     credentials: true,
   });
   app.useGlobalFilters(new HttpExceptionFilter(logger));
+
+  swaggerInit(app);
   await app.listen(3000);
 }
 bootstrap();

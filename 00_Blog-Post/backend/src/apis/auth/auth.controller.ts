@@ -60,6 +60,7 @@ export class AuthController {
   @UseGuards(AuthGuard('google'))
   @Get('login/google')
   async loginGoogle(@Req() req: Request & IOAuthUser, @Res() res: Response) {
+    console.log('찍힘?');
     //1. 가입확인
     let user = await this.userService.findOne(req.user.email);
     //2. 회원가입

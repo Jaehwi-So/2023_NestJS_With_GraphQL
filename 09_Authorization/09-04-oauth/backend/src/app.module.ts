@@ -30,7 +30,7 @@ import { UserModule } from './apis/users/user.module';
       port: 3306,
       username: 'root',
       password: '1111',
-      database: 'myproject3',
+      database: 'mydocker03',
       //entities: [Board],
       entities: [__dirname + '/apis/**/*.entity.*'],
       synchronize: true,

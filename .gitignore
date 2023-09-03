@@ -133,4 +133,6 @@ yarn.lock
 # volume
 
 **/local-mariadb
+uploads
+**/.DS_Store
 

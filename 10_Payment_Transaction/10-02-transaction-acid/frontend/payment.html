@@ -20,7 +20,7 @@
       function requestPay() {
         const amount = document.getElementById("price").value;
         const IMP = window.IMP; // 생략 가능
-        IMP.init("imp44240506"); // 예: imp00000000a
+        IMP.init("YOUR_IMP_CODE"); // 예: imp00000000a
         IMP.request_pay(
           {
             pg: "html5_inicis", //PG사

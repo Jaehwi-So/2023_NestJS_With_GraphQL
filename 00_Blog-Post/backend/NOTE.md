@@ -14,4 +14,11 @@ yarn add passport-google-oauth20
 
 # Logger
 
-yarn add nest-winston winstoㅜwinston-daily-rotate-file
+yarn add nest-winston winston winston-daily-rotate-file
+
+yarn add @types/multer --dev
+
+# BigQuery
+
+@google-cloud/bigquery
+@google-cloud/storage

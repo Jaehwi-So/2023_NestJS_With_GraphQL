@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결제페이지</title>
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+    ></script>
+    <!-- iamport.payment.js -->
+    <script
+      type="text/javascript"
+      src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+      function requestPay() {
+        const token =
+          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dGVzdEBnbWFpbC5jb20iLCJ1c2VySWQiOjMsIm5pY2tuYW1lIjoi7J6s7ZyYIiwiYXV0aCI6IlJPTEVfQ09OU1VNRVIiLCJleHAiOjE2OTE5MDY5MDh9._UxDpOxFywHxlkZOhV9T-uYw8hxk_SeQFL_NKgQGYu0";
+        axios
+          .get("http://localhost:8082/api/v1/consumer/cafe", {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          })
+          .then((response) => {
+            console.log("응답 데이터:", response.data);
+          })
+          .catch((error) => {
+            console.error("에러 발생:", error);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="requestPay()">결제하기</button>
+  </body>
+</html>

@@ -14,6 +14,6 @@ export class FileResolver {
     @Args({ name: 'files', type: () => [GraphQLUpload] }) files: FileUpload[], //
   ) {
     //Args에 File 받기
-    return this.fileService.upload({ files });
+    return this.fileService.upload(files);
   }
 }

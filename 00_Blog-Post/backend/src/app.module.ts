@@ -9,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AuthModule } from './apis/auth/auth.module';
+import { FileModule } from './apis/file/file.module';
 import { PaymentModule } from './apis/payment/payment.module';
 import { ProductsModule } from './apis/products/products.module';
 import { ProductCategoryModule } from './apis/productsCategory/productCategory.module';
@@ -40,6 +41,7 @@ import { RequestMiddleware } from './commons/middleware/logger.middleware';
     UserModule,
     AuthModule,
     PaymentModule,
+    FileModule,
   ],
   controllers: [],
   providers: [],

@@ -1,9 +1,10 @@
 import { Storage } from '@google-cloud/storage';
 import { Injectable } from '@nestjs/common';
+import { FileUpload } from 'graphql-upload';
 
 @Injectable()
 export class FileService {
-  async upload({ files }) {
+  async upload(files: FileUpload[]) {
     const waitedFiles = await Promise.all(files);
     // console.log(waitedFiles);
 

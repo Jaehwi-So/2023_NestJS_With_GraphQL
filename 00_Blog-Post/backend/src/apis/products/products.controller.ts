@@ -10,16 +10,28 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import {
+  ApiCreatedResponse,
+  ApiOperation,
+  ApiParam,
+  ApiTags,
+} from '@nestjs/swagger';
 import { CreateProductInput } from './dto/createProduct.dto';
 import { UpdateProductInput } from './dto/updateProduct.dto';
 import { Product } from './entities/product.entity';
 import { ProductsService } from './products.service';
 
 @Controller('product')
+@ApiTags('상품 API')
 export class ProductsController {
   constructor(private readonly productService: ProductsService) {}
 
   @Post()
+  @ApiOperation({ summary: '상품 생성 API', description: '상품을 등록합니다.' })
+  @ApiCreatedResponse({
+    description: '상품 등록에 성공하면 해당 상품 정보 반환',
+    type: Product,
+  })
   createProduct(@Body() input: CreateProductInput): Promise<Product> {
     return this.productService.create(input);
   }
@@ -41,6 +53,14 @@ export class ProductsController {
   }
 
   @Get(':id')
+  @ApiOperation({
+    summary: '상품 조회 API',
+    description: '해당 ID에 해당하는 상품 조회',
+  })
+  @ApiCreatedResponse({
+    description: '단일 상품 정보 응답',
+    type: Product,
+  })
   selectProduct(@Param('id') id: number): Promise<Product> {
     return this.productService.findOne(id);
   }
